@@ -1,6 +1,8 @@
 const express = require('express'); 
 const express = require('express');
 const session = require('express-session');
+const exphbs = require('express-handlebars');
+const helpers = require('./utils/helpers');
 
 const app = express(); 
 const PORT = process.env.PORT || 3001;
@@ -26,10 +28,22 @@ const sess = {
 
 app.use(session(sess));
 
+const hbs = exphbs.create({ helpers });
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(require('./controllers/'));
+
 app.listen(PORT, (error) =>{ 
-	if(!error) 
-		console.log("Server is Successfully Running, and App is listening on port "+ PORT) 
-	else
+	if(!error){
+		console.log("Server is Successfully Running, and App is listening on port "+ PORT);
+		sequelize.sync({ force: false });
+	} else
 		console.log("Error occurred, server can't start", error); 
 	} 
 ); 
