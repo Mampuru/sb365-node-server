@@ -1,0 +1,20 @@
+<div class="issue card">
+  <div class="card-header">
+    <h2>Edit Issue</h2>
+  </div>
+  <form id="edit-issue-form" class="card-body">
+    <input type="hidden" name="issue-id" value="{{issue.id}}" />
+
+    <label class="form-label" for="issue-title">Title</label>
+    <input type="text" name="issue-title" value="{{issue.title}}" class="form-input" />
+
+    <label class="form-label" for="issue-body">Content</label>
+    <textarea name="issue-body" class="form-input">{{issue.state}}</textarea>
+
+    <button type="submit" class="btn">Update</button>
+
+    <button type="button" id="delete-btn" class="btn">Delete</button>
+  </form>
+</div>
+
+<script src="/js/edit.js"></script>
