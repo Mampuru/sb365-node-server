@@ -1,2 +1,2 @@
-# sb365-node-server
-The Service Buzz 365 API built in ExpressJS and admin Dashbaord 
+# SB365 Node Server
+The Service Buzz 365 API built in ExpressJS and admin Dashbaord. 
