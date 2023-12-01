@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS community-db;
+DROP DATABASE IF EXISTS communitydb;
 
-CREATE DATABASE community-db
+CREATE DATABASE communitydb;
