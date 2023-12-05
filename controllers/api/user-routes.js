@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-app.post('/app/login', async (req, res) => {
+router.post('/app/login', async (req, res) => {
   try {
     const user = await User.findOne({ where: { email: req.body.email } });
 
